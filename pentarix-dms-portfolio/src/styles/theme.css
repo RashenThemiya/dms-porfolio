@@ -1,0 +1,11 @@
+/* Shared palette for the navy/orange marketing theme. */
+@theme {
+  --color-dms-bg: #0b1120;
+  --color-dms-panel: #111a2c;
+  --color-dms-border: #25314a;
+  --color-dms-line: #1f2a40;
+  --color-dms-text: #e8ecf4;
+  --color-dms-muted: #8e9ab2;
+  --color-dms-secondary: #a3adc2;
+  --color-dms-accent: #ff6b0f;
+}

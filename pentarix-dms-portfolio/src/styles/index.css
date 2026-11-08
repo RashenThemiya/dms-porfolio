@@ -1,0 +1,131 @@
+@import 'tailwindcss';
+@import './theme.css';
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #ffffff;
+  color: #111827;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.reveal-section {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-section.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-section article {
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+.faq-answer-grid {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 280ms ease,
+    opacity 220ms ease;
+}
+
+.faq-answer-grid.faq-answer-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.mobile-menu-enter {
+  transform-origin: top;
+  animation: mobile-menu-in 180ms ease-out both;
+}
+
+@keyframes mobile-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scaleY(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .reveal-section article:hover {
+    transform: translateY(-5px);
+    border-color: color-mix(in srgb, #f97316 35%, #e5e7eb);
+    box-shadow: 0 18px 38px -24px rgba(15, 23, 42, 0.38);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal-section,
+  .reveal-section article,
+  .faq-answer-grid,
+  .mobile-menu-enter {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Keep anchored sections clear of the sticky navigation. */
+main section[id] {
+  scroll-margin-top: 128px;
+}
+
+/* Keep compact layouts readable without concealing horizontal overflow. */
+.site-container {
+  min-width: 0;
+}
+@media (max-width: 639px) {
+  .site-container {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+  }
+  main section[id] {
+    scroll-margin-top: 88px;
+  }
+  main section.py-16,
+  main section.py-20 {
+    padding-block: 48px;
+  }
+  footer a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}

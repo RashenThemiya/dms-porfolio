@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>How Pentarix DMS works</title>
+    <link rel="stylesheet" href="/animations/order-story/story.css" />
+  </head>
+  <body>
+    <div class="story">
+      <div
+        class="stage-wrap"
+        tabindex="0"
+        aria-label="Distribution animation, scroll horizontally on small screens"
+      >
+        <svg
+          id="story"
+          viewBox="0 60 1200 380"
+          role="img"
+          aria-label="Animation: a sales rep rides to a shop, sends the order by phone, the office processes it, boxes are loaded on a lorry and delivered to the shop"
+        >
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#101a30" />
+              <stop offset="1" stop-color="#16233d" />
+            </linearGradient>
+            <linearGradient id="glowO" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ff6b0f" stop-opacity=".35" />
+              <stop offset="1" stop-color="#ff6b0f" stop-opacity="0" />
+            </linearGradient>
+            <g id="box">
+              <rect x="-12" y="-12" width="24" height="24" rx="3" fill="#c98b4f" />
+              <path d="M-12 -4H12M0 -12V-4" stroke="#8d5a2b" stroke-width="2" />
+            </g>
+          </defs>
+          <rect width="1200" height="440" fill="url(#sky)" />
+          <!-- skyline -->
+          <g fill="#13203a">
+            <rect x="430" y="230" width="60" height="110" />
+            <rect x="500" y="200" width="44" height="140" />
+            <rect x="552" y="250" width="70" height="90" />
+            <rect x="630" y="215" width="40" height="125" />
+            <rect x="680" y="245" width="66" height="95" />
+            <rect x="756" y="225" width="50" height="115" />
+            <rect x="1140" y="240" width="60" height="100" />
+          </g>
+          <g fill="#1d2c4a">
+            <rect x="508" y="215" width="8" height="8" />
+            <rect x="524" y="215" width="8" height="8" />
+            <rect x="508" y="235" width="8" height="8" />
+            <rect x="640" y="230" width="8" height="8" />
+            <rect x="654" y="250" width="8" height="8" />
+            <rect x="766" y="240" width="8" height="8" />
+            <rect x="782" y="260" width="8" height="8" />
+          </g>
+
+          <!-- office -->
+          <g>
+            <rect
+              x="60"
+              y="130"
+              width="160"
+              height="210"
+              rx="4"
+              fill="#1d2a45"
+              stroke="#2f3e60"
+              stroke-width="2"
+            />
+            <rect x="82" y="104" width="116" height="28" rx="5" fill="#ff6b0f" />
+            <text
+              x="140"
+              y="123"
+              text-anchor="middle"
+              font-family="Figtree,sans-serif"
+              font-weight="800"
+              font-size="14"
+              fill="#160800"
+              letter-spacing="1"
+            >
+              DMS OFFICE
+            </text>
+            <rect
+              x="80"
+              y="160"
+              width="120"
+              height="84"
+              rx="4"
+              fill="#0c1528"
+              stroke="#3a4b70"
+              stroke-width="2"
+            />
+            <circle cx="102" cy="196" r="9" fill="#e9b98d" />
+            <path d="M93 192a9 9 0 0 1 18 0" fill="#2a2a2a" />
+            <rect x="92" y="206" width="20" height="30" rx="8" fill="#3b82c4" />
+            <rect
+              id="monitor"
+              x="124"
+              y="180"
+              width="62"
+              height="40"
+              rx="3"
+              fill="#0b1426"
+              stroke="#5a77a8"
+              stroke-width="2"
+            />
+            <rect id="monscreen" x="128" y="184" width="54" height="32" fill="#163056" />
+            <path
+              d="M133 192h30M133 199h40M133 206h24"
+              stroke="#5a8cd0"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+            <rect x="150" y="220" width="10" height="8" fill="#5a77a8" />
+            <rect x="86" y="228" width="108" height="6" rx="2" fill="#3a4a6e" />
+            <g fill="#26385c">
+              <rect x="80" y="260" width="34" height="26" rx="2" />
+              <rect x="123" y="260" width="34" height="26" rx="2" />
+              <rect x="166" y="260" width="34" height="26" rx="2" />
+            </g>
+            <rect x="122" y="296" width="36" height="44" fill="#0c1528" />
+          </g>
+
+          <!-- warehouse -->
+          <g>
+            <polygon points="232,196 322,150 412,196" fill="#2a3858" />
+            <rect
+              x="240"
+              y="194"
+              width="164"
+              height="146"
+              fill="#1d2a45"
+              stroke="#2f3e60"
+              stroke-width="2"
+            />
+            <text
+              x="322"
+              y="225"
+              text-anchor="middle"
+              font-family="Figtree,sans-serif"
+              font-weight="700"
+              font-size="12"
+              fill="#8e9ab2"
+              letter-spacing="2"
+            >
+              WAREHOUSE
+            </text>
+            <rect x="272" y="244" width="100" height="96" fill="#0c1528" />
+            <g stroke="#1f2e4c" stroke-width="2">
+              <path d="M272 256h100M272 268h100M272 280h100" />
+            </g>
+            <use href="#box" x="294" y="326" />
+            <use href="#box" x="322" y="326" />
+            <use href="#box" x="350" y="326" />
+            <use href="#box" x="308" y="302" />
+            <use href="#box" x="336" y="302" />
+          </g>
+
+          <!-- shop -->
+          <g>
+            <rect
+              x="900"
+              y="186"
+              width="230"
+              height="154"
+              fill="#1d2a45"
+              stroke="#2f3e60"
+              stroke-width="2"
+            />
+            <rect x="924" y="150" width="182" height="32" rx="5" fill="#ffb23e" />
+            <text
+              x="1015"
+              y="172"
+              text-anchor="middle"
+              font-family="Figtree,'Noto Sans Sinhala',sans-serif"
+              font-weight="800"
+              font-size="15"
+              fill="#2a1600"
+            >
+              SHOP · කඩේ
+            </text>
+            <g id="awning"></g>
+            <g fill="#26385c">
+              <rect x="925" y="226" width="180" height="6" />
+              <rect x="925" y="252" width="180" height="6" />
+            </g>
+            <g>
+              <rect x="932" y="212" width="12" height="14" fill="#f0455a" />
+              <rect x="948" y="214" width="12" height="12" fill="#22c38e" />
+              <rect x="964" y="210" width="10" height="16" fill="#ffb23e" />
+              <rect x="1040" y="212" width="12" height="14" fill="#5a8cd0" />
+              <rect x="1056" y="214" width="14" height="12" fill="#f0455a" />
+              <rect x="1074" y="210" width="12" height="16" fill="#22c38e" />
+              <rect x="934" y="238" width="14" height="14" fill="#ffb23e" />
+              <rect x="952" y="240" width="12" height="12" fill="#5a8cd0" />
+              <rect x="1060" y="238" width="12" height="14" fill="#ffb23e" />
+              <rect x="1076" y="240" width="14" height="12" fill="#f0455a" />
+            </g>
+            <circle cx="1015" cy="252" r="10" fill="#c98d62" />
+            <rect x="1003" y="262" width="24" height="22" rx="8" fill="#22a06b" />
+            <g id="wave">
+              <path d="M1027 268l12-14" stroke="#c98d62" stroke-width="6" stroke-linecap="round" />
+            </g>
+            <rect x="930" y="282" width="170" height="58" rx="3" fill="#2b3b5e" />
+            <rect x="930" y="282" width="170" height="8" fill="#3a4c74" />
+          </g>
+
+          <!-- road -->
+          <rect x="0" y="336" width="1200" height="8" fill="#26324c" />
+          <rect x="0" y="344" width="1200" height="76" fill="#1a2336" />
+          <path d="M0 382H1200" stroke="#56627d" stroke-width="3" stroke-dasharray="22 18" />
+          <rect x="0" y="420" width="1200" height="20" fill="#141c2c" />
+
+          <g id="dyn">
+            <!-- lorry -->
+            <g id="lorry" transform="translate(420,372)">
+              <rect x="0" y="-86" width="128" height="70" rx="4" fill="#e8ecf4" />
+              <text
+                x="64"
+                y="-44"
+                text-anchor="middle"
+                font-family="'Bricolage Grotesque',Figtree,sans-serif"
+                font-weight="800"
+                font-size="22"
+                fill="#ff6b0f"
+              >
+                DMS
+              </text>
+              <path d="M128 -64h26l18 22v26h-44z" fill="#ff6b0f" />
+              <path d="M134 -58h18l12 16h-30z" fill="#9fd0ff" />
+              <rect x="0" y="-18" width="172" height="6" fill="#3a4a6e" />
+              <g class="wheel" data-cx="30">
+                <circle cx="30" cy="-8" r="13" fill="#0b0f18" />
+                <circle cx="30" cy="-8" r="5" fill="#8e9ab2" />
+                <path d="M30 -16v16M22 -8h16" stroke="#56627d" stroke-width="2" />
+              </g>
+              <g class="wheel" data-cx="142">
+                <circle cx="142" cy="-8" r="13" fill="#0b0f18" />
+                <circle cx="142" cy="-8" r="5" fill="#8e9ab2" />
+                <path d="M142 -16v16M134 -8h16" stroke="#56627d" stroke-width="2" />
+              </g>
+              <g id="lorrycount" opacity="0">
+                <circle cx="118" cy="-86" r="13" fill="#22c38e" />
+                <text
+                  id="lorrycountt"
+                  x="118"
+                  y="-81"
+                  text-anchor="middle"
+                  font-family="Figtree,sans-serif"
+                  font-weight="800"
+                  font-size="14"
+                  fill="#06281c"
+                >
+                  0
+                </text>
+              </g>
+            </g>
+            <!-- flying boxes -->
+            <use id="b1" href="#box" x="0" y="0" opacity="0" />
+            <use id="b2" href="#box" x="0" y="0" opacity="0" />
+            <use id="b3" href="#box" x="0" y="0" opacity="0" />
+            <use id="bd" href="#box" x="0" y="0" opacity="0" />
+            <!-- bike -->
+            <g id="bike" transform="translate(120,404)">
+              <g class="wheel" data-cx="0">
+                <circle cx="0" cy="-15" r="15" fill="#0b0f18" stroke="#3a4a6e" stroke-width="4" />
+                <circle cx="0" cy="-15" r="5" fill="#8e9ab2" />
+                <path d="M0 -26v22M-11 -15h22" stroke="#56627d" stroke-width="2" />
+              </g>
+              <g class="wheel" data-cx="62">
+                <circle cx="62" cy="-15" r="15" fill="#0b0f18" stroke="#3a4a6e" stroke-width="4" />
+                <circle cx="62" cy="-15" r="5" fill="#8e9ab2" />
+                <path d="M62 -26v22M51 -15h22" stroke="#56627d" stroke-width="2" />
+              </g>
+              <path d="M2 -16 L18 -24" stroke="#8e9ab2" stroke-width="4" stroke-linecap="round" />
+              <path d="M62 -15 L52 -44" stroke="#c7d0e4" stroke-width="4" stroke-linecap="round" />
+              <rect x="20" y="-28" width="22" height="14" rx="3" fill="#56627d" />
+              <path d="M8 -18 h22" stroke="#9aa6bf" stroke-width="4" stroke-linecap="round" />
+              <path d="M6 -30 Q8 -40 22 -40 H40 L54 -34 L50 -24 H12 Z" fill="#ff6b0f" />
+              <path d="M14 -40 H34 L36 -44 H16 Z" fill="#1a2336" />
+              <path d="M50 -44 L58 -50" stroke="#c7d0e4" stroke-width="4" stroke-linecap="round" />
+              <circle cx="58" cy="-38" r="4" fill="#ffe08a" />
+              <rect x="-10" y="-52" width="24" height="18" rx="2" fill="#c98b4f" />
+              <path d="M24 -42 L20 -66" stroke="#2c4a7c" stroke-width="13" stroke-linecap="round" />
+              <path
+                d="M24 -42 L38 -30 L36 -20"
+                stroke="#1e2f50"
+                stroke-width="7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                fill="none"
+              />
+              <path d="M22 -62 L50 -50" stroke="#2c4a7c" stroke-width="6" stroke-linecap="round" />
+              <circle cx="20" cy="-76" r="10" fill="#e9b98d" />
+              <path d="M8 -78a12 12 0 0 1 24 0v4h-24z" fill="#ff6b0f" />
+              <path d="M26 -78h8" stroke="#9fd0ff" stroke-width="3" stroke-linecap="round" />
+            </g>
+            <!-- phone bubble -->
+            <g id="phone" opacity="0">
+              <rect
+                x="-46"
+                y="-118"
+                width="92"
+                height="118"
+                rx="12"
+                fill="#0b1426"
+                stroke="#e8ecf4"
+                stroke-width="3"
+              />
+              <rect x="-38" y="-104" width="76" height="16" rx="3" fill="#ff6b0f" />
+              <text
+                x="0"
+                y="-92"
+                text-anchor="middle"
+                font-family="Figtree,sans-serif"
+                font-weight="800"
+                font-size="10"
+                fill="#160800"
+              >
+                NEW ORDER
+              </text>
+              <g id="plines">
+                <rect x="-36" y="-80" width="58" height="6" rx="3" fill="#56627d" />
+                <rect x="-36" y="-68" width="44" height="6" rx="3" fill="#56627d" />
+                <rect x="-36" y="-56" width="66" height="6" rx="3" fill="#56627d" />
+                <rect x="-36" y="-44" width="38" height="6" rx="3" fill="#56627d" />
+              </g>
+              <rect id="psend" x="-34" y="-30" width="68" height="18" rx="9" fill="#22c38e" />
+              <text
+                x="0"
+                y="-17"
+                text-anchor="middle"
+                font-family="Figtree,sans-serif"
+                font-weight="800"
+                font-size="11"
+                fill="#06281c"
+              >
+                SEND
+              </text>
+            </g>
+            <!-- packet -->
+            <path
+              id="trail"
+              d=""
+              stroke="#ff6b0f"
+              stroke-width="2.5"
+              stroke-dasharray="6 8"
+              fill="none"
+              opacity="0"
+            />
+            <g id="packet" opacity="0">
+              <rect x="-16" y="-11" width="32" height="22" rx="4" fill="#ff6b0f" />
+              <path d="M-12 -7 L0 3 L12 -7" stroke="#160800" stroke-width="2.5" fill="none" />
+            </g>
+            <!-- office card -->
+            <g id="card" opacity="0" transform="translate(250,150)">
+              <rect
+                x="0"
+                y="-70"
+                width="230"
+                height="150"
+                rx="12"
+                fill="#0b1426"
+                stroke="#ff6b0f"
+                stroke-width="2"
+              />
+              <text
+                x="16"
+                y="-44"
+                font-family="Figtree,sans-serif"
+                font-weight="800"
+                font-size="15"
+                fill="#e8ecf4"
+              >
+                Order #1043
+              </text>
+              <text
+                x="16"
+                y="-26"
+                font-family="Figtree,sans-serif"
+                font-weight="500"
+                font-size="11.5"
+                fill="#8e9ab2"
+              >
+                Lanka Stores · 12 items
+              </text>
+              <g id="ck1" opacity=".25">
+                <circle cx="24" cy="-4" r="8" fill="#22c38e" />
+                <path d="M20 -4l3 3 5-6" stroke="#06281c" stroke-width="2" fill="none" />
+                <text x="40" y="0" font-family="Figtree,sans-serif" font-size="12" fill="#e8ecf4">
+                  Stock available
+                </text>
+              </g>
+              <g id="ck2" opacity=".25">
+                <circle cx="24" cy="18" r="8" fill="#22c38e" />
+                <path d="M20 18l3 3 5-6" stroke="#06281c" stroke-width="2" fill="none" />
+                <text x="40" y="22" font-family="Figtree,sans-serif" font-size="12" fill="#e8ecf4">
+                  Prices checked
+                </text>
+              </g>
+              <g id="ck3" opacity=".25">
+                <circle cx="24" cy="40" r="8" fill="#22c38e" />
+                <path d="M20 40l3 3 5-6" stroke="#06281c" stroke-width="2" fill="none" />
+                <text x="40" y="44" font-family="Figtree,sans-serif" font-size="12" fill="#e8ecf4">
+                  Credit limit OK
+                </text>
+              </g>
+              <g id="pill1">
+                <rect x="132" y="54" width="86" height="20" rx="10" fill="#3a2a10" />
+                <text
+                  x="175"
+                  y="68"
+                  text-anchor="middle"
+                  font-family="Figtree,sans-serif"
+                  font-weight="700"
+                  font-size="11"
+                  fill="#ffb23e"
+                >
+                  Processing…
+                </text>
+              </g>
+              <g id="pill2" opacity="0">
+                <rect x="132" y="54" width="86" height="20" rx="10" fill="#0f3a2b" />
+                <text
+                  x="175"
+                  y="68"
+                  text-anchor="middle"
+                  font-family="Figtree,sans-serif"
+                  font-weight="700"
+                  font-size="11"
+                  fill="#4fe0ad"
+                >
+                  Processed ✓
+                </text>
+              </g>
+            </g>
+            <!-- delivered badge -->
+            <g id="deliv" opacity="0" transform="translate(1015,120)">
+              <rect x="-74" y="-20" width="148" height="40" rx="20" fill="#22c38e" />
+              <text
+                x="0"
+                y="6"
+                text-anchor="middle"
+                font-family="Figtree,sans-serif"
+                font-weight="800"
+                font-size="16"
+                fill="#06281c"
+              >
+                Delivered ✓
+              </text>
+            </g>
+          </g>
+        </svg>
+      </div>
+      <ol class="steps" id="steps">
+        <li role="button" tabindex="0" data-s="0">
+          <i> </i>
+          <b>Rep visits the shop</b>
+          <span>The sales rep rides the day's route and reaches the shop.</span>
+        </li>
+        <li role="button" tabindex="0" data-s="1">
+          <i> </i>
+          <b>Order on the phone</b>
+          <span>The order is entered on the phone and sent straight away.</span>
+        </li>
+        <li role="button" tabindex="0" data-s="2">
+          <i> </i>
+          <b>Admin checks and processes</b>
+          <span>The office checks stock and prices, then processes the order.</span>
+        </li>
+        <li role="button" tabindex="0" data-s="3">
+          <i> </i>
+          <b>Loaded on the lorry</b>
+          <span>Processed orders are packed and loaded for the delivery run.</span>
+        </li>
+        <li role="button" tabindex="0" data-s="4">
+          <i> </i>
+          <b>Delivered to the shop</b>
+          <span>The lorry delivers the order and it is marked as delivered.</span>
+        </li>
+      </ol>
+    </div>
+    <div class="controls">
+      <button id="story-pause" type="button" aria-pressed="false">Pause animation</button>
+    </div>
+    <script src="/animations/order-story/story.js"></script>
+  </body>
+</html>
