@@ -1,3 +1,4 @@
+import { asset } from '../../utils/asset.js';
 import CallLink from '../../components/ui/CallLink.jsx';
 import { ArrowRight, Check } from 'lucide-react';
 
@@ -5,9 +6,9 @@ import Container from '../../components/ui/Container.jsx';
 import { distributionSolutions } from '../../data/solutions.js';
 
 const icons = {
-  route: '/icons/route-optimization.svg',
-  warehouse: '/icons/wms-advanced.svg',
-  forecast: '/icons/demand-forecasting.svg',
+  route: asset('/icons/route-optimization.svg'),
+  warehouse: asset('/icons/wms-advanced.svg'),
+  forecast: asset('/icons/demand-forecasting.svg'),
 };
 
 function DistributionNetworksSection() {

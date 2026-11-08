@@ -1,3 +1,4 @@
+import { asset } from '../utils/asset.js';
 export const retailCapabilities = [
   { icon: 'zap', label: 'Real-time POS' },
   { icon: 'sync', label: 'Omni-Sync' },
@@ -7,7 +8,7 @@ export const retailCapabilities = [
 
 export const retailSolution = {
   title: 'Modern Retail Stores',
-  image: '/images/solutions/modern-retail-store.png',
+  image: asset('/images/solutions/modern-retail-store.png'),
   imageAlt: 'Interior of a modern fashion retail store',
   challenge:
     'Managing fast-moving consumer goods across storefronts and warehouses while keeping online stock accurate 24/7.',
@@ -37,7 +38,7 @@ export const wholesaleCapabilities = [
 
 export const wholesaleSolution = {
   title: 'Wholesale & B2B',
-  image: '/images/solutions/wholesale-b2b-warehouse.png',
+  image: asset('/images/solutions/wholesale-b2b-warehouse.png'),
   imageAlt: 'Large wholesale distribution warehouse with stocked pallet racks',
   challenge:
     'Complex pricing tiers, bulk order fulfillment, and managing large accounts with specific credit terms.',
@@ -68,7 +69,7 @@ export const distributionSolutions = [
 
 export const pharmaSolution = {
   title: 'Pharma & Specialty Stores',
-  image: '/images/solutions/pharma-specialty-store.png',
+  image: asset('/images/solutions/pharma-specialty-store.png'),
   imageAlt: 'Climate-controlled pharmaceutical storage facility',
   challenge:
     'Strict compliance, expiration date management, and batch-level tracking for medical or perishable goods.',

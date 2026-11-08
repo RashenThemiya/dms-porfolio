@@ -1,3 +1,4 @@
+import { asset } from '../../utils/asset.js';
 import CallLink from '../ui/CallLink.jsx';
 import { useEffect, useState } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
@@ -59,7 +60,7 @@ function Navbar() {
             onClick={() => setIsOpen(false)}
             aria-label="Pentarix DMS home"
           >
-            <img src="/logo/pentarix-logo.svg" alt="" className="h-8 w-auto" aria-hidden="true" />
+            <img src={asset('/logo/pentarix-logo.svg')} alt="" className="h-8 w-auto" aria-hidden="true" />
             <span>
               PENTARIX <span className="text-orange-500">DMS</span>
             </span>

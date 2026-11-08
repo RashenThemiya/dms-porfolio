@@ -1,3 +1,4 @@
+import { asset } from '../../../utils/asset.js';
 import useFrameMessage from '../../../hooks/useFrameMessage.js';
 import { useCallback, useRef, useState } from 'react';
 import Container from '../../../components/ui/Container.jsx';
@@ -30,7 +31,7 @@ export default function HowItWorksSection() {
         </div>
         <iframe
           ref={frameRef}
-          src="/animations/order-story/index.html"
+          src={asset('/animations/order-story/index.html')}
           title="Animated order journey: sales rep, phone order, office processing, loading and delivery"
           className="mt-9 block w-full border-0"
           style={{ height }}

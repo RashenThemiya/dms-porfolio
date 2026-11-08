@@ -1,3 +1,4 @@
+import { asset } from '../../../utils/asset.js';
 import { useRef, useState } from 'react';
 import { Pause, Play } from 'lucide-react';
 import { customer } from '../../../data/home/customers.js';
@@ -31,7 +32,7 @@ export default function CustomerRoutePreview() {
       <div className="overflow-hidden rounded-3xl border border-dms-border bg-dms-bg shadow-xl shadow-black/20">
         <iframe
           ref={frameRef}
-          src="/animations/customer-route/index.html"
+          src={asset('/animations/customer-route/index.html')}
           title={`${customer.name} illustrative network of 12 routes from one branch`}
           onLoad={initialize}
           className="block aspect-[5/4.2] w-full border-0 max-[420px]:aspect-[4/5]"

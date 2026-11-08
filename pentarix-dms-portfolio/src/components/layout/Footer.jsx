@@ -1,3 +1,4 @@
+import { asset } from '../../utils/asset.js';
 import { MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { contactDetails, footerNavigation, productLinks, socialLinks } from '../../data/footer.js';
@@ -33,7 +34,7 @@ function Logo() {
       className="flex w-fit items-center gap-2 text-xl font-extrabold tracking-[-0.035em] text-white"
       aria-label="Pentarix DMS home"
     >
-      <img src="/logo/pentarix-logo.svg" alt="" className="h-9 w-auto" aria-hidden="true" />
+      <img src={asset('/logo/pentarix-logo.svg')} alt="" className="h-9 w-auto" aria-hidden="true" />
       <span>
         PENTARIX <span className="text-orange-500">DMS</span>
       </span>

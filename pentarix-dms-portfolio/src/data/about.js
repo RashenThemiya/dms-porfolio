@@ -1,3 +1,4 @@
+import { asset } from '../utils/asset.js';
 export const missionVision = {
   mission: {
     title: 'Our Mission',
@@ -14,7 +15,7 @@ export const missionVision = {
 export const companyStats = {
   experienceYears: '10+',
   experienceLabel: 'Years of Supply\nChain Expertise',
-  image: '/images/about/enterprise-team.png',
+  image: asset('/images/about/enterprise-team.png'),
   imageAlt: 'Pentarix DMS team collaborating',
 };
 
@@ -48,7 +49,7 @@ export const companyValues = [
 export const worldwideData = {
   title: 'Supporting Businesses Worldwide',
   description: 'Powering distribution networks and retail operations across regions.',
-  image: '/images/about/global-map.png',
+  image: asset('/images/about/global-map.png'),
   imageAlt: 'Pentarix DMS Worldwide Coverage Map',
 };
 
