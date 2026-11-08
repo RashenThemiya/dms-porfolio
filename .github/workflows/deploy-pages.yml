@@ -36,7 +36,8 @@ jobs:
         run: npm run build
         working-directory: pentarix-dms-portfolio
         env:
-          BASE_PATH: ${{ steps.pages.outputs.base_path }}/
+          # Custom domain (dms.pentarixlabs.com) serves the site at the root.
+          BASE_PATH: /
 
       # SPA fallback: GitHub Pages serves 404.html for unknown paths,
       # so deep links like /about load the app and React Router takes over.
