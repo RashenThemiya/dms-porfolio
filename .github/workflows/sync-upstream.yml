@@ -1,0 +1,60 @@
+name: Sync from janaka-madusanka/pentarix-dms-portfolio
+
+# Copies the latest code from the source repo into pentarix-dms-portfolio/,
+# commits it if anything changed, then triggers the GitHub Pages deploy.
+on:
+  schedule:
+    - cron: '*/30 * * * *' # every 30 minutes
+  workflow_dispatch: # "Run workflow" button in the Actions tab
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: sync-upstream
+  cancel-in-progress: false
+
+env:
+  UPSTREAM_REPO: https://github.com/janaka-madusanka/pentarix-dms-portfolio.git
+  UPSTREAM_BRANCH: main
+  TARGET_DIR: pentarix-dms-portfolio
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch latest upstream code
+        run: git clone --depth 1 --branch "$UPSTREAM_BRANCH" "$UPSTREAM_REPO" /tmp/upstream
+
+      - name: Copy into project folder
+        run: |
+          # Mirror upstream files; keep our own CNAME (custom domain).
+          rsync -a --delete --exclude '.git' --exclude '.github' --exclude 'CNAME' \
+            /tmp/upstream/ "$TARGET_DIR/"
+          echo "UPSTREAM_SHA=$(git -C /tmp/upstream rev-parse --short HEAD)" >> "$GITHUB_ENV"
+
+      - name: Commit and push if changed
+        id: commit
+        run: |
+          git add -A "$TARGET_DIR"
+          if git diff --cached --quiet; then
+            echo "No upstream changes."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Sync from upstream ($UPSTREAM_SHA)"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      # Pushes made with GITHUB_TOKEN don't trigger other workflows,
+      # so start the Pages deploy explicitly.
+      - name: Trigger deploy
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy-pages.yml --ref "${{ github.ref_name }}"
