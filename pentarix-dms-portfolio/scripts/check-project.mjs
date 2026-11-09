@@ -1,3 +1,4 @@
+import { pricingTiers, getOriginalPrice } from '../src/data/pricing.js';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -6,6 +7,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { MemoryRouter } from 'react-router-dom';
 import { createServer } from 'vite';
 import { screens } from '../src/data/home/screens.js';
+import { productLinks, footerNavigation } from '../src/data/footer.js';
 import { customerStats } from '../src/data/home/customers.js';
 
 const root = process.cwd();
@@ -34,6 +36,7 @@ for (const file of files) {
     assets++;
   }
 }
+assert.deepEqual(pricingTiers.map((tier) => getOriginalPrice(tier.offerAmount)), [300000, 790000, 2000000]);
 assert.equal(screens.length, 4);
 assert.equal(
   screens.find((screen) => screen.name === 'Items').image,
@@ -51,7 +54,7 @@ assert.deepEqual(
 const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
 try {
   const { default: App } = await server.ssrLoadModule('/src/app/App.jsx');
-  for (const route of ['/', '/features', '/solutions', '/pricing', '/about', '/contact']) {
+  for (const route of ['/']) {
     const html = renderToStaticMarkup(
       React.createElement(MemoryRouter, { initialEntries: [route] }, React.createElement(App)),
     );
@@ -72,6 +75,14 @@ try {
         'pricing',
       ]);
       assert.ok(html.includes('Thilina Distributors'));
+      for (const price of ['Rs. 300,000', 'Rs. 790,000', 'Rs. 2M']) assert.ok(html.includes(price));
+      assert.equal((html.match(/<del\b/g) || []).length, 3);
+      assert.ok(html.includes('11.11 Sale'));
+      for (const item of [...productLinks, ...footerNavigation]) {
+        assert.ok(item.to.startsWith('/#'), `Footer uses home sections: ${item.label}`);
+        const id = item.to.slice(2);
+        assert.ok(html.includes(`id="${id}"`), `Footer target exists: ${item.label}`);
+      }
     }
     if (route === '/contact') assert.ok(!html.includes('<form'), 'email form removed');
     assert.ok(html.includes('href="tel:+94751352570"'), `${route}: call link`);

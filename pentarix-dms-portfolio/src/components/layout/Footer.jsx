@@ -1,4 +1,3 @@
-import { asset } from '../../utils/asset.js';
 import { MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { contactDetails, footerNavigation, productLinks, socialLinks } from '../../data/footer.js';
@@ -34,7 +33,7 @@ function Logo() {
       className="flex w-fit items-center gap-2 text-xl font-extrabold tracking-[-0.035em] text-white"
       aria-label="Pentarix DMS home"
     >
-      <img src={asset('/logo/pentarix-logo.svg')} alt="" className="h-9 w-auto" aria-hidden="true" />
+      <img src="/logo/pentarix-logo.svg" alt="" className="h-9 w-auto" aria-hidden="true" />
       <span>
         PENTARIX <span className="text-orange-500">DMS</span>
       </span>
@@ -44,14 +43,14 @@ function Logo() {
 
 function Footer() {
   return (
-    <footer className="bg-slate-950 py-16 text-slate-400 lg:pt-20">
+    <footer className="border-t border-dms-line bg-dms-bg py-12 sm:py-16 text-slate-400 lg:pt-20">
       <Container>
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.15fr_1fr_1fr_1.15fr] lg:gap-16">
           <div>
             <Logo />
             <p className="mt-6 max-w-xs text-sm leading-6 sm:text-base sm:leading-7">
-              The next generation distribution management system for ambitious enterprise
-              businesses.
+              Manage stock, sales reps, shop orders and deliveries in one place. Built for
+              multi-branch FMCG distributors.
             </p>
             <div className="mt-8 flex gap-4">
               {socialLinks.map(({ label, icon, href }) => {
@@ -62,7 +61,7 @@ function Footer() {
                     target="_blank"
                     rel="noreferrer"
                     aria-label={label}
-                    className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-900 text-white transition-colors hover:bg-orange-500"
+                    className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-900 text-white transition-colors hover:bg-orange-500"
                   >
                     <SocialIcon name={icon} />
                   </a>
@@ -134,7 +133,7 @@ function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col gap-4 border-t border-slate-800 pt-8 text-[11px] tracking-[0.16em] text-slate-500 sm:flex-row sm:items-center sm:justify-between sm:text-xs">
-          <p>© 2026 PENTARIX DMS. ALL RIGHTS RESERVED.</p>
+          <p>{'\u00A9'} {new Date().getFullYear()} PENTARIX DMS. ALL RIGHTS RESERVED.</p>
           <p>BUILT WITH PRECISION FOR MODERN COMMERCE.</p>
         </div>
       </Container>

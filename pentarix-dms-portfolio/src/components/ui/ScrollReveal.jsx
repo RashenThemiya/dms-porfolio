@@ -4,8 +4,8 @@ import useInView from '../../hooks/useInView.js';
 function ScrollReveal({ children, className = '' }) {
   const elementRef = useRef(null);
   const isVisible = useInView(elementRef, {
-    threshold: 0.08,
-    rootMargin: '0px 0px -6% 0px',
+    threshold: 0,
+    rootMargin: '0px 0px 240px 0px',
     once: true,
   });
 

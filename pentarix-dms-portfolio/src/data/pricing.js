@@ -1,3 +1,20 @@
+export const pricingOffer = {
+  discountPercent: 50,
+  label: '11.11 Sale',
+  validUntil: '30 November 2026',
+  endsAt: '2026-12-01T00:00:00+05:30',
+};
+
+export function getOriginalPrice(offerAmount) {
+  return Math.round(offerAmount / (1 - pricingOffer.discountPercent / 100));
+}
+
+export function formatPlanPrice(amount) {
+  return amount >= 1000000
+    ? `Rs. ${Number((amount / 1000000).toFixed(2))}M`
+    : `Rs. ${amount.toLocaleString('en-US')}`;
+}
+
 export const pricingTiers = [
   {
     id: 'basic',
@@ -5,6 +22,7 @@ export const pricingTiers = [
     badge: null,
     description: 'For small teams',
     price: 'Rs. 150,000',
+    offerAmount: 150000,
     buttonText: 'Contact Sales',
     buttonVariant: 'secondary',
     isPopular: false,
@@ -23,6 +41,7 @@ export const pricingTiers = [
     badge: 'RECOMMENDED',
     description: 'For growing operations',
     price: 'Rs. 395,000',
+    offerAmount: 395000,
     buttonText: 'Contact Sales',
     buttonVariant: 'primary',
     isPopular: true,
@@ -41,6 +60,7 @@ export const pricingTiers = [
     badge: null,
     description: 'For large-scale operations',
     price: 'Rs. 1M',
+    offerAmount: 1000000,
     buttonText: 'Contact Sales',
     buttonVariant: 'enterprise',
     isPopular: false,

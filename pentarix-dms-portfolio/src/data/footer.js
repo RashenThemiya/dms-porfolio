@@ -1,20 +1,15 @@
+import navigation from './navigation.js';
 import { contactPhone } from './phone.js';
 
 export const productLinks = [
-  { label: 'Inventory Management', to: '/features#inventory' },
-  { label: 'Sales & POS', to: '/features' },
-  { label: 'Multi-Store Sync', to: '/features' },
-  { label: 'Reporting & BI', to: '/features' },
-  { label: 'Integrations', to: '/features' },
+  { label: 'Inventory', to: '/#feature-inventory' },
+  { label: 'Sales Management', to: '/#feature-sales' },
+  { label: 'Product Catalog', to: '/#feature-catalog' },
+  { label: 'Dynamic Reports', to: '/#feature-reports' },
+  { label: 'Multi-Store', to: '/#feature-multiStore' },
 ];
 
-export const footerNavigation = [
-  { label: 'Home', to: '/' },
-  { label: 'Features', to: '/features' },
-  { label: 'Solutions', to: '/solutions' },
-  { label: 'Pricing', to: '/pricing' },
-  { label: 'About Us', to: '/about' },
-];
+export const footerNavigation = navigation;
 
 export const socialLinks = [
   {

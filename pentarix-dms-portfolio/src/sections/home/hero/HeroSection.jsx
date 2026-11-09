@@ -1,4 +1,3 @@
-import { asset } from '../../../utils/asset.js';
 import CallLink from '../../../components/ui/CallLink.jsx';
 import { heroFacts, initialNetwork } from '../../../data/home/hero.js';
 import useFrameMessage from '../../../hooks/useFrameMessage.js';
@@ -32,7 +31,7 @@ function HeroSection() {
     <section className="relative isolate overflow-hidden bg-dms-bg py-16 text-dms-text sm:py-20 lg:pt-28 lg:pb-16">
       <iframe
         ref={frameRef}
-        src={asset('/animations/network/index.html')}
+        src="/animations/network/index.html"
         title="Illustrative 3D distribution network with branches, sales reps and delivery lorries"
         aria-hidden="true"
         tabIndex={-1}

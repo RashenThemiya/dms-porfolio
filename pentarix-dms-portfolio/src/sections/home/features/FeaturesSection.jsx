@@ -31,6 +31,7 @@ function FeaturesSection() {
           {modules.map((module) => (
             <article
               key={module.title}
+              id={`feature-${module.icon}`}
               className="group min-w-0 rounded-2xl border border-dms-border bg-dms-panel p-4 sm:p-5 transition-colors duration-200 hover:border-orange-500/40 hover:bg-[#152036] motion-reduce:transition-none"
             >
               <div className="flex items-center gap-3">

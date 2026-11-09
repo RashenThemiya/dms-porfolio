@@ -16,7 +16,7 @@ npm run build
 npm run preview
 ```
 
-`lint` checks application source. `check` verifies public asset references, renders all six routes, checks the shared layout and protects the approved Home content and screenshot mappings. `build` creates the production output in `dist/`.
+`lint` checks application source. `check` verifies public asset references, renders the Home page, checks the shared layout and protects the approved Home content and screenshot mappings. `build` creates the production output in `dist/`.
 
 ## Structure
 
@@ -24,7 +24,7 @@ npm run preview
 src/
   app/                 Application component and route definitions
   layouts/             Shared navigation, route outlet and footer
-  pages/               Composition for the six public routes
+  pages/               Home page composition
   components/
     icons/             Reusable module icons
     layout/            Navigation, footer and route scrolling
@@ -39,17 +39,13 @@ src/
       screens/         Four-screen carousel
       customers/       Thilina Distributors profile
       pricing/         Home pricing composition
-    about/             About page sections
-    contact/           Contact page sections
-    features/          Full Features page sections and visual components
     pricing/           Shared pricing sections and plan card
-    solutions/         Solutions page sections
   data/
     home/              Editable Home content and screenshot paths
     pricing.js         License plans, add-ons, notes and pricing FAQs
     phone.js           Shared call number and telephone URL
   hooks/               Carousel, visibility, media-query and iframe messaging
-  styles/              Theme tokens, global styles and Features page styles
+  styles/              Theme tokens and global styles
 public/
   animations/
     network/           Hero document, network.js and network.css
@@ -68,7 +64,7 @@ scripts/
 - Home navigation targets are defined in `src/data/navigation.js`; the section order is composed in `src/pages/Home.jsx`.
 - Edit screenshots in `src/data/home/screens.js`. Items uses `screen-3.webp`, Branches uses `screen-2.webp`, and the fourth slide is Live Tracking.
 - Customer metrics are in `src/data/home/customers.js`. The current customer is Thilina Distributors: 1 branch, 12 routes, 865 shops, 247 items, 1 sales rep and 1 delivery person.
-- Pricing is shared by Home and `/pricing`; update it in `src/data/pricing.js`. Enterprise is displayed as `Rs. 1M`.
+- Pricing is displayed on Home; update it in `src/data/pricing.js`. Enterprise is displayed as `Rs. 1M`.
 - The banner's English and Sinhala copy is in `src/data/home/banner.js`. Only this banner switches language; there is no site-wide language switch or banner pause button.
 
 The shared navy/orange palette lives in `src/styles/theme.css` and is used through `dms-*` Tailwind utilities. Isolated animation documents keep their own local styles.
@@ -79,7 +75,7 @@ The shared navy/orange palette lives in `src/styles/theme.css` and is used throu
 
 Animation documents stay isolated from React. `useFrameMessage` verifies both the origin and source frame before accepting messages. The hero publishes example network counts; the order story publishes its content height. The story supports five clickable or keyboard-selectable steps and playback controls.
 
-Demo and contact actions use `CallLink` and open the dialer for 075 135 2570. The number is configured once in `src/data/phone.js`. About and Contact show a direct call section; email forms and the EmailJS adapter have been removed.
+Demo and contact actions use `CallLink` and open the dialer for 075 135 2570. The number is configured once in `src/data/phone.js`. Legacy page components, email forms and the EmailJS adapter have been removed. Old Features, Solutions, Pricing and About URLs redirect to the relevant Home sections; Contact redirects to Home.
 
 ## Formatting and deployment
 

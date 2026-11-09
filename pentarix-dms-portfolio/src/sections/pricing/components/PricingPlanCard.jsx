@@ -1,3 +1,4 @@
+import { pricingOffer, getOriginalPrice, formatPlanPrice } from '../../../data/pricing.js';
 import CallLink from '../../../components/ui/CallLink.jsx';
 
 import { Check } from 'lucide-react';
@@ -13,32 +14,36 @@ export default function PricingPlanCard({ tier }) {
             : 'border border-dms-border bg-dms-panel'
       }`}
     >
-      {/* Popular badge docked in top right corner */}
-      {tier.badge && (
-        <div className="absolute -top-[2px] -right-[2px]">
-          <span className="inline-flex items-center rounded-bl-xl rounded-tr-[26px] bg-dms-accent px-4 py-1.5 text-[11px] font-extrabold uppercase tracking-wider text-slate-950 shadow-sm">
-            {tier.badge}
-          </span>
+      <div className="pointer-events-none absolute top-0 right-0 h-36 w-36 overflow-hidden rounded-tr-[24px] sm:rounded-tr-[28px]">
+        <div className="absolute top-7 -right-12 w-52 rotate-45 bg-gradient-to-r from-orange-500 to-amber-400 py-2 text-center text-slate-950 shadow-lg shadow-orange-950/30">
+          <span className="block text-[10px] font-extrabold uppercase tracking-widest">{pricingOffer.label}</span>
+          <span className="block text-xl font-black leading-6">{pricingOffer.discountPercent}% OFF</span>
         </div>
-      )}
+      </div>
 
       <div>
         <h3
-          className={`text-2xl font-extrabold tracking-tight ${
+          className={`max-w-[calc(100%-64px)] text-xl sm:text-2xl font-extrabold tracking-tight ${
             tier.isDark ? 'text-white' : 'text-dms-text'
           }`}
         >
           {tier.name}
         </h3>
         <p
-          className={`mt-2 text-sm leading-relaxed ${
+          className={`mt-2 max-w-[calc(100%-64px)] text-sm leading-relaxed ${
             tier.isDark ? 'text-slate-400' : 'text-dms-muted'
           }`}
         >
           {tier.description}
         </p>
 
-        <div className="mt-8 mb-8">
+        {tier.badge && <p className="mt-3 w-fit rounded-full border border-orange-500/30 bg-orange-500/10 px-3 py-1 text-[10px] font-extrabold tracking-wider text-orange-400">{tier.badge}</p>}
+        <div className="mt-7 mb-8">
+          <p className="mb-1 text-base text-dms-muted">
+            <span className="sr-only">Original price: </span>
+            <del className="decoration-slate-400">{formatPlanPrice(getOriginalPrice(tier.offerAmount))}</del>
+          </p>
+          <span className="sr-only">Offer price: </span>
           <span
             className={`text-3xl sm:text-4xl font-extrabold tracking-tight ${
               tier.isDark ? 'text-white' : 'text-dms-text'
@@ -51,6 +56,7 @@ export default function PricingPlanCard({ tier }) {
           >
             {'One-time license'}
           </p>
+          <p className="mt-2 text-xs leading-5 text-dms-muted">Valid until {pricingOffer.validUntil}</p>
         </div>
 
         <div className="space-y-4">

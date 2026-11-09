@@ -6,7 +6,7 @@ import ScrollReveal from '../components/ui/ScrollReveal.jsx';
 
 export default function SiteLayout() {
   return (
-    <div className="min-h-screen bg-white text-slate-900">
+    <div className="min-h-screen bg-dms-bg text-dms-text">
       <ScrollToTop />
       <Navbar />
       <Outlet />
